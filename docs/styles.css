@@ -1,0 +1,387 @@
+/* Import Inter font */
+@import url('https://rsms.me/inter/inter.css');
+
+/* Base styles */
+:root {
+    font-family: 'Inter', sans-serif;
+}
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: 'Inter var', sans-serif;
+    }
+}
+body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: -0.011em;
+}
+a {
+    color: black;
+}
+a:hover {
+    color: black;
+}
+
+/* Headers */
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: -0.021em;
+    text-wrap:balance;
+}
+h2, h3, h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -0.017em;
+}
+h5 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: -0.011em;
+}
+h1, h2, h3, h4, h5, h6 {
+  border-bottom: none !important;
+}
+h1 a, h2 a, h3 a, h4 a, h5 a {
+    display: none; /* Hide all anchor links next to headings */
+}
+
+/* Cards */
+.card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: none;
+    background-color: #f1f0ea;
+    text-wrap:balance;
+}
+.card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    text-wrap:balance;
+}
+.card-title {
+    min-height: 50px;
+}
+
+/* Project Cards */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+.project-card h2 {
+    font-weight: 900;
+    text-align: left;
+    margin-bottom: 10px;
+    text-wrap:balance;
+}
+.project-card img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+}
+.project-card p {
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: white;
+    color: white;
+}
+.navbar a {
+    color: black !important;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: -0.017em;
+}
+
+/* Other */
+td.name-and-title {
+    padding-left: 10px;
+}
+.title {
+    display: none;
+}
+.contact-section {
+    display: flex;
+    align-items: center;
+}
+.contact-section svg {
+    margin-right: 10px;
+}
+/* Custom styles for Talkshop card */
+.talkshop-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.talkshop-card h2 {
+    align-self: flex-start;
+    margin-bottom: 15px;
+    width: 100%;  /* Make the border extend across the card */
+}
+
+.talkshop-card p {
+    align-self: flex-start;
+    text-align: left;
+    
+}
+
+.talkshop-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.talkshop-header img {
+    height: 50px;  /* Adjust the height to match the text */
+    width: auto;
+}
+
+.talkshop-header p {
+    margin-top: 19px;  /* Lower the text slightly */
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 36px;
+    letter-spacing: -0.047em;
+}
+
+.talkshop-header p a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Carousel-specific styles */
+@keyframes tonext {
+  75% { left: 0; }
+  95% { left: 100%; }
+  98% { left: 100%; }
+  99% { left: 0; }
+}
+
+@keyframes tostart {
+  75% { left: 0; }
+  95% { left: -300%; }
+  98% { left: -300%; }
+  99% { left: 0; }
+}
+
+@keyframes snap {
+  96% { scroll-snap-align: center; }
+  97% { scroll-snap-align: none; }
+  99% { scroll-snap-align: none; }
+  100% { scroll-snap-align: center; }
+}
+
+.carousel-body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-color: transparent transparent;
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+.carousel ol,
+.carousel li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel {
+  position: relative;
+  padding-top: 40%;
+  perspective: 500px;
+  width: 100%;
+}
+
+/* Increase padding-top for mobile screens */
+@media only screen and (max-width: 768px) {
+  .carousel {
+    padding-top: 100%; /* Adjust this percentage as needed */
+  }
+}
+
+.carousel__viewport {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  overflow-x: scroll;
+  counter-reset: item;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel__slide {
+  position: relative;
+  flex: 0 0 100%;
+  width: 100%;
+}
+
+.carousel__snapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+.carousel__snapper {
+}
+
+.carousel__slide:last-child .carousel__snapper {
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carousel__snapper {
+  }
+}
+
+.carousel:hover .carousel__snapper,
+.carousel:focus-within .carousel__snapper {
+}
+
+.carousel__navigation {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+
+.carousel__navigation-list,
+.carousel__navigation-item {
+  display: inline-block;
+}
+
+.carousel__navigation-button {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: transparent;
+  background-clip: content-box;
+  border: 0.25rem solid transparent;
+  border-radius: 50%;
+  font-size: 0;
+  transition: transform 0.1s;
+}
+
+.carousel::before,
+.carousel::after,
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  top: 0;
+  margin-top: 37.5%;
+  width: 4rem;
+  height: 4rem;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  font-size: 0;
+  outline: 0;
+}
+
+.carousel::before,
+.carousel__prev {
+  left: -1rem;
+}
+
+.carousel::after,
+.carousel__next {
+  right: -1rem;
+}
+
+.carousel::before,
+.carousel::after {
+  content: '';
+  z-index: 1;
+  background-color: transparent;
+  background-size: 1.5rem 1.5rem;
+  background-repeat: no-repeat;
+  background-position: center center;
+  color: #fff;
+  font-size: 2.5rem;
+  line-height: 4rem;
+  text-align: center;
+  pointer-events: none;
+}
+.carousel::before{
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>');
+}
+
+.carousel::after{
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>');
+}
+
+/* New styles for the 'Contact' button */
+.contact-button {
+  display: block;
+  margin: auto;
+  background-color: black;
+  color: white;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  color: white; /* Keeps the text color white on hover */
+}
+
+.testimonial__info-content {
+  display: flex;
+  align-items: center;
+}
+
+.testimonial__logo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+.testimonial__details {
+  text-align: left;
+}
